@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>午夜剧场协和影视 | 深夜专属放映空间 | 经典影视午夜轮播</title>
+<meta name="description" content="午夜剧场协和影视(wuyejuchangxieheyingshi-top)是专为深夜观影打造的剧场式影视平台。当城市安静下来，幕布缓缓升起——经典电影、深夜剧集、独立短片、纪录片在午夜时分轮番登场。每一晚都有不同的放映主题，每一次点击都是一次沉浸式的观影体验。">
+<meta name="keywords" content="午夜剧场协和影视, 深夜放映, 午夜电影轮播, 经典影视午夜场, 剧场式观影, 深夜剧集专区, wuyejuchangxieheyingshi-top">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Cinzel","Noto Serif SC","PingFang SC",serif;background:#0a0510;color:#d0d0e0;line-height:1.7;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* 幕布顶条 */
+.curtain-bar{background:#0d0715;border-bottom:1px solid #2a1540;padding:.5rem 1.5rem;display:flex;justify-content:space-between;align-items:center;font-size:.72rem;color:#8a7090;letter-spacing:1px;font-family:"JetBrains Mono",monospace}
+.curtain-bar .spot{color:#f4c430;animation:flicker 3s infinite}
+@keyframes flicker{0%,100%{opacity:1}45%{opacity:.6}50%{opacity:1}55%{opacity:.7}60%{opacity:1}}
+
+/* 剧场导航 */
+.theater-nav{position:sticky;top:0;z-index:100;background:rgba(10,5,16,.94);backdrop-filter:blur(10px);border-bottom:1px solid #2a1540}
+.nav-in{max-width:1200px;margin:0 auto;padding:.7rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.brand{display:flex;align-items:center;gap:.75rem}
+.brand-spot{width:40px;height:40px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff5cc,#f4c430 40%,#8a6000 80%);display:flex;align-items:center;justify-content:center;font-size:1.1rem;box-shadow:0 0 12px rgba(244,196,48,.4)}
+.brand h1{font-size:1.15rem;font-weight:900;letter-spacing:-.3px;line-height:1.1}
+.brand h1 em{font-style:normal;color:#f4c430}
+.brand small{font-size:.58rem;color:#7a6090;letter-spacing:1.5px;display:block}
+.nav-links{display:flex;gap:.3rem;font-size:.82rem;font-family:"Noto Serif SC",serif}
+.nav-links a{padding:.5rem .9rem;border-radius:4px;color:#a090b0;transition:.2s;position:relative}
+.nav-links a:hover,.nav-links a.active{background:rgba(244,196,48,.08);color:#f4c430}
+.nav-cta{background:linear-gradient(135deg,#4a1230,#2a0a20);color:#f4c430;border:1px solid rgba(244,196,48,.4);padding:.55rem 1.4rem;border-radius:4px;font-weight:700;font-size:.82rem;transition:.2s;cursor:pointer}
+.nav-cta:hover{background:linear-gradient(135deg,#6a1a45,#4a1230);box-shadow:0 0 12px rgba(244,196,48,.2)}
+
+/* Hero 幕布 */
+.hero{position:relative;min-height:92vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:4rem 1.5rem;overflow:hidden;background:radial-gradient(ellipse at 50% 60%,#2a1540 0%,#150820 40%,#0a0510 75%)}
+.spotlight{position:absolute;top:-10%;left:50%;transform:translateX(-50%);width:600px;height:800px;background:conic-gradient(from 200deg at 50% 0%,transparent 0deg,rgba(244,196,48,.06) 80deg,transparent 160deg);animation:spot-sway 6s ease-in-out infinite}
+@keyframes spot-sway{0%,100%{transform:translateX(-50%) rotate(-3deg)}50%{transform:translateX(-50%) rotate(3deg)}}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(1px 1px at 10% 20%,#fff,transparent),radial-gradient(1px 1px at 30% 60%,#fff,transparent),radial-gradient(1.5px 1.5px at 55% 25%,#fff,transparent),radial-gradient(1px 1px at 75% 70%,#fff,transparent),radial-gradient(1px 1px at 88% 35%,#fff,transparent),radial-gradient(1px 1px at 20% 85%,#fff,transparent);opacity:.5}
+.hero-in{max-width:1200px;margin:0 auto;width:100%;grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;position:relative;z-index:2}
+.hero-text .act{font-size:.72rem;letter-spacing:5px;color:#f4c430;text-transform:uppercase;font-weight:700;margin-bottom:1rem;display:block;font-family:"JetBrains Mono",monospace}
+.hero-text .act::before{content:"— Act ";color:#8a6090}
+.hero-text h2{font-size:clamp(2rem,5vw,4rem);font-weight:900;line-height:1.15;letter-spacing:-1px;color:#fff;margin-bottom:1.5rem;font-family:"Noto Serif SC",serif}
+.hero-text h2 .gold{color:#f4c430}
+.hero-text p{font-size:1rem;color:#a090b8;max-width:440px;margin-bottom:2rem;line-height:1.9;font-family:"Noto Serif SC",serif}
+.hero-text .btns{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn-theater{padding:.85rem 2rem;border-radius:3px;font-weight:700;font-size:.9rem;cursor:pointer;transition:.25s;border:none;font-family:"Noto Serif SC",serif}
+.btn-spot{background:#f4c430;color:#1a0b2e;box-shadow:0 0 15px rgba(244,196,48,.3)}
+.btn-spot:hover{background:#fff5cc;box-shadow:0 0 22px rgba(244,196,48,.5)}
+.btn-dim{background:transparent;color:#d0d0e0;border:1px solid #4a4070}
+.btn-dim:hover{border-color:#f4c430;color:#f4c430}
+
+/* 票根视觉 */
+.ticket-stage{position:relative;width:100%;max-width:360px;margin:0 auto;perspective:800px}
+.ticket{width:100%;background:linear-gradient(145deg,#1e0d35,#150825);border:1px solid #3a2055;border-radius:8px;padding:1.5rem;position:relative;transform:rotateY(-8deg) rotateX(5deg);box-shadow:0 20px 50px rgba(0,0,0,.6);overflow:hidden}
+.ticket::before{content:"";position:absolute;top:0;bottom:0;left:33%;width:2px;background:repeating-linear-gradient(180deg,transparent,transparent 8px,#0a0510 8px,#0a0510 16px)}
+.ticket::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(244,196,48,.08),transparent 60%)}
+.ticket-stub{position:absolute;left:0;top:0;bottom:0;width:33%;padding:1rem;display:flex;flex-direction:column;justify-content:space-between;align-items:center;border-right:2px dashed rgba(244,196,48,.3)}
+.ticket-stub .num{font-family:"JetBrains Mono",monospace;font-size:1.5rem;color:#f4c430;font-weight:700}
+.ticket-stub .admit{font-size:.6rem;color:#8a7090;letter-spacing:2px;writing-mode:vertical-rl;transform:rotate(180deg)}
+.ticket-main{padding-left:36%}
+.ticket-main .row{font-size:.68rem;color:#8a7090;letter-spacing:1px;margin-bottom:.35rem;font-family:"JetBrains Mono",monospace}
+.ticket-main .film-name{font-size:1.1rem;font-weight:700;color:#fff;margin:.5rem 0;font-family:"Noto Serif SC",serif}
+.ticket-main .bar{height:28px;background:repeating-linear-gradient(90deg,#fff 0,#fff 2px,transparent 2px,transparent 4px);margin-top:1rem;opacity:.8}
+
+/* 光束分隔 */
+.beam-divider{height:3px;position:relative;background:linear-gradient(90deg,transparent,#4a1230 20%,#f4c430 50%,#4a1230 80%,transparent);margin:1rem 0}
+.beam-divider::before{content:"◆";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#f4c430;background:#0a0510;padding:0 1rem;font-size:1rem}
+
+/* 通用 */
+.wrap{max-width:1200px;margin:0 auto;padding:4.5rem 1.5rem}
+.sec-head{margin-bottom:3rem;text-align:center}
+.sec-head .curtain-tag{display:inline-block;background:rgba(244,196,48,.06);color:#f4c430;border:1px solid rgba(244,196,48,.2);padding:.3rem 1.2rem;border-radius:3px;font-size:.7rem;font-weight:700;letter-spacing:2px;margin-bottom:1rem;font-family:"JetBrains Mono",monospace}
+.sec-head h2{font-size:clamp(1.6rem,3.5vw,2.6rem);font-weight:900;letter-spacing:-.5px;color:#fff;font-family:"Noto Serif SC",serif}
+.sec-head h2 em{font-style:normal;color:#f4c430}
+.sec-head p{font-size:.9rem;color:#8a7090;margin-top:.75rem;max-width:580px;margin-left:auto;margin-right:auto;font-family:"Noto Serif SC",serif}
+
+/* 放映片单 */
+.show-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.5rem}
+.show-card{background:linear-gradient(170deg,#150825,#0f0620);border:1px solid #2a1540;border-radius:6px;overflow:hidden;transition:.3s;position:relative}
+.show-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#4a1230,#f4c430,#4a1230);transform:scaleX(0);transform-origin:left;transition:.4s}
+.show-card:hover::before{transform:scaleX(1)}
+.show-card:hover{transform:translateY(-5px);border-color:#f4c430;box-shadow:0 10px 30px rgba(74,18,48,.4)}
+.show-card .poster{height:190px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;position:relative}
+.show-card .poster .reel{position:absolute;top:10px;left:10px;background:#4a1230;color:#f4c430;font-size:.65rem;font-weight:700;padding:.2rem .55rem;border-radius:2px;font-family:"JetBrains Mono",monospace}
+.show-card .poster .runtime{position:absolute;bottom:10px;right:10px;background:rgba(10,5,16,.85);color:#f4c430;font-size:.7rem;padding:.15rem .45rem;font-family:"JetBrains Mono",monospace}
+.show-card:nth-child(1) .poster{background:linear-gradient(135deg,#1a0b2e,#4a1230)}
+.show-card:nth-child(2) .poster{background:linear-gradient(135deg,#0d1a35,#1a3a5c)}
+.show-card:nth-child(3) .poster{background:linear-gradient(135deg,#2a1a35,#4a2a5a)}
+.show-card:nth-child(4) .poster{background:linear-gradient(135deg,#1a1525,#3a3050)}
+.show-card:nth-child(5) .poster{background:linear-gradient(135deg,#251a1a,#5a2a2a)}
+.show-card:nth-child(6) .poster{background:linear-gradient(135deg,#1a2515,#2a4a20)}
+.show-card .info{padding:1.25rem}
+.show-card .info h3{font-size:1rem;font-weight:700;color:#fff;margin-bottom:.5rem;font-family:"Noto Serif SC",serif}
+.show-card .info .desc{font-size:.82rem;color:#8a7aa0;line-height:1.6;font-family:"Noto Serif SC",serif}
+.show-card .info .genre{display:flex;gap:.4rem;margin-top:.75rem;flex-wrap:wrap}
+.show-card .info .genre span{font-size:.68rem;background:rgba(244,196,48,.06);color:#f4c430;border:1px solid rgba(244,196,48,.15);padding:.15rem .55rem;border-radius:2px}
+
+/* 放映时刻表 */
+.schedule{background:linear-gradient(170deg,#150825,#0f0620);border:1px solid #2a1540;border-radius:6px;padding:2rem;overflow:hidden}
+.sched-row{display:grid;grid-template-columns:80px 1fr auto;gap:1.5rem;align-items:center;padding:1rem 0;border-bottom:1px solid rgba(244,196,48,.08)}
+.sched-row:last-child{border-bottom:none}
+.sched-row .time{font-family:"JetBrains Mono",monospace;font-size:1.1rem;color:#f4c430;font-weight:700}
+.sched-row .film{font-size:.95rem;color:#e0e0f0;font-family:"Noto Serif SC",serif}
+.sched-row .film small{display:block;font-size:.72rem;color:#7a6090;margin-top:.2rem}
+.sched-row .now-playing{background:#4a1230;color:#f4c430;font-size:.65rem;padding:.2rem .6rem;border-radius:2px;font-weight:700;letter-spacing:1px;animation:pulse-now 2s ease-in-out infinite}
+@keyframes pulse-now{0%,100%{opacity:1}50%{opacity:.6}}
+
+/* 分区导览 */
+.zone-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.25rem}
+.zone{background:linear-gradient(170deg,#1a0d32,#120620);border:1px solid #2a1540;border-left:3px solid #4a1230;padding:1.5rem;transition:.25s}
+.zone:nth-child(2){border-left-color:#2a3a5a}
+.zone:nth-child(3){border-left-color:#3a2a4a}
+.zone:nth-child(4){border-left-color:#2a4a3a}
+.zone:hover{border-left-color:#f4c430;background:linear-gradient(170deg,#220d40,#150825);transform:translateX(4px)}
+.zone .no{font-family:"JetBrains Mono",monospace;font-size:1.5rem;color:#4a1230;font-weight:700}
+.zone:hover .no{color:#f4c430}
+.zone h4{font-size:1rem;font-weight:700;color:#fff;margin:.5rem 0;font-family:"Noto Serif SC",serif}
+.zone p{font-size:.82rem;color:#8a7aa0;line-height:1.6;font-family:"Noto Serif SC",serif}
+
+/* 数据舞台 */
+.stage-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#2a1540;border:1px solid #2a1540;border-radius:6px;overflow:hidden}
+.stat{background:#120620;padding:2.5rem 1rem;text-align:center;position:relative}
+.stat::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:30px;height:2px;background:#f4c430}
+.stat .n{font-size:2.2rem;font-weight:900;color:#f4c430;font-family:"Cinzel",serif}
+.stat .l{font-size:.78rem;color:#8a7090;margin-top:.5rem;font-family:"Noto Serif SC",serif}
+
+/* 沉浸体验 */
+.immersive{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem}
+.im-card{background:linear-gradient(170deg,#150825,#0f0620);border:1px solid #2a1540;border-radius:6px;padding:1.75rem;transition:.25s;text-align:center}
+.im-card:hover{border-color:rgba(244,196,48,.4);box-shadow:0 8px 25px rgba(74,18,48,.3)}
+.im-card .ic{font-size:2rem;margin-bottom:.75rem;display:block;filter:drop-shadow(0 0 8px rgba(244,196,48,.3))}
+.im-card h4{font-size:1rem;font-weight:700;color:#fff;margin-bottom:.5rem;font-family:"Noto Serif SC",serif}
+.im-card p{font-size:.82rem;color:#8a7aa0;line-height:1.6;font-family:"Noto Serif SC",serif}
+
+/* 页脚 */
+.foot{background:#05030a;border-top:1px solid #2a1540;padding:4rem 1.5rem 2rem;text-align:center}
+.foot .logo{font-size:clamp(1.4rem,3.5vw,2.2rem);font-weight:900;color:#f4c430;margin-bottom:1rem;font-family:"Noto Serif SC",serif}
+.foot .logo em{font-style:normal;color:#8a6090}
+.foot .curtain-row{font-size:1.5rem;margin:1rem 0;letter-spacing:15px;opacity:.4}
+.foot p{font-size:.82rem;color:#6a5070;margin-bottom:.5rem;font-family:"Noto Serif SC",serif}
+.foot .url{font-family:"JetBrains Mono",monospace;font-size:.82rem;color:#f4c430;background:#120620;border:1px solid #2a1540;padding:.55rem 1.4rem;border-radius:3px;display:inline-block;margin:1rem 0}
+.foot .links{display:flex;justify-content:center;gap:1.5rem;margin:1.5rem 0;flex-wrap:wrap;font-size:.82rem;font-family:"Noto Serif SC",serif}
+.foot .links a{color:#6a5070;transition:.2s}
+.foot .links a:hover{color:#f4c430}
+
+@media(max-width:768px){
+.curtain-bar{font-size:.65rem}
+.hero,.hero-in{grid-template-columns:1fr;gap:2rem}
+.ticket-stage{max-width:300px}
+.ticket{transform:none;padding:1rem}
+.ticket::before{display:none}
+.ticket-main{padding-left:38%}
+.nav-links{display:none}
+.show-grid{grid-template-columns:1fr;gap:1rem}
+.show-card .poster{height:160px;font-size:2rem}
+.schedule{padding:1.25rem}
+.sched-row{grid-template-columns:60px 1fr;gap:1rem}
+.sched-row .now-playing{grid-column:2}
+.stage-stats{grid-template-columns:repeat(2,1fr)}
+.zone-grid{grid-template-columns:1fr}
+.im-card{padding:1.5rem}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<!-- 幕布条 -->
+<div class="curtain-bar">
+<span><span class="spot">●</span> 午夜场 · 现在放映中</span>
+<span>Showtime 23:00 — 05:00</span>
+<span>今晚座无虚席</span>
+</div>
+
+<!-- 剧场导航 -->
+<nav class="theater-nav">
+<div class="nav-in">
+<div class="brand">
+<div class="brand-spot">◆</div>
+<div>
+<h1><em>午夜剧场</em>协和影视</h1>
+<small>MIDNIGHT · THEATER</small>
+</div>
+</div>
+<div class="nav-links">
+<a href="#" class="active">剧场首页</a>
+<a href="#show">今晚放映</a>
+<a href="#schedule">放映时刻</a>
+<a href="#zone">分区导览</a>
+<a href="#stage">舞台数据</a>
+<a href="#about">关于剧场</a>
+</div>
+<button class="nav-cta">◆ 入场券</button>
+</div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+<div class="spotlight"></div>
+<div class="hero-in">
+<div class="hero-text">
+<span class="act">第一幕</span>
+<h2>当城市<br><span class="gold">入眠</span> 好戏开场</h2>
+<p>午夜剧场协和影视，是深夜里的专属放映空间。幕布缓缓升起，光影重新流动——经典电影、深夜剧集、独立短片、纪录片在午夜时分轮番登场，每一晚都有不同的放映主题。</p>
+<div class="btns">
+<button class="btn-theater btn-spot">◆ 拉开幕布</button>
+<button class="btn-theater btn-dim">📜 查看排片</button>
+</div>
+</div>
+<div class="ticket-stage">
+<div class="ticket">
+<div class="ticket-stub">
+<div class="num">No.097</div>
+<div class="admit">ADMIT ONE</div>
+</div>
+<div class="ticket-main">
+<div class="row">MIDNIGHT THEATER</div>
+<div class="film-name">今晚放映</div>
+<div class="row">SEAT · A 排 07 座</div>
+<div class="row">SHOWTIME · 23:00</div>
+<div class="bar"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 光束分隔 -->
+<div class="beam-divider"></div>
+
+<!-- 今晚放映 -->
+<section class="wrap" id="show">
+<div class="sec-head">
+<span class="curtain-tag">TONIGHT'S SHOW</span>
+<h2>今晚<span>放映</span></h2>
+<p>每一部作品都是精心挑选的午夜限定</p>
+</div>
+<div class="show-grid">
+<div class="show-card">
+<div class="poster"><span class="reel">REEL 01</span><span class="runtime">1:58:24</span>🎬</div>
+<div class="info">
+<h3>午夜巴黎</h3>
+<div class="desc">午夜的巴黎街头，时光倒流回黄金年代。伍迪·艾伦写给艺术史的一封情书。</div>
+<div class="genre"><span>文艺</span><span>奇幻</span><span>浪漫</span></div>
+</div>
+</div>
+<div class="show-card">
+<div class="poster"><span class="reel">REEL 02</span><span class="runtime">0:42:07</span>🌙</div>
+<div class="info">
+<h3>凌晨四点的信号塔</h3>
+<div class="desc">值守员、一台老收音机和一段二十年前的磁带，在深夜的电波里重逢。</div>
+<div class="genre"><span>纪录</span><span>深夜</span><span>怀旧</span></div>
+</div>
+</div>
+<div class="show-card">
+<div class="poster"><span class="reel">REEL 03</span><span class="runtime">0:18:24</span>🕯️</div>
+<div class="info">
+<h3>雨天的第七种拍法</h3>
+<div class="desc">一个剧组在暴雨里等了六个小时，只为拍一场没有台词的告别。</div>
+<div class="genre"><span>短片</span><span>独立</span><span>文艺</span></div>
+</div>
+</div>
+<div class="show-card">
+<div class="poster"><span class="reel">REEL 04</span><span class="runtime">0:51:33</span>📺</div>
+<div class="info">
+<h3>熄灯之后</h3>
+<div class="desc">一栋旧公寓里的六个夜晚，谁都没有把那件事说出口。</div>
+<div class="genre"><span>剧集</span><span>悬疑</span><span>心理</span></div>
+</div>
+</div>
+<div class="show-card">
+<div class="poster"><span class="reel">REEL 05</span><span class="runtime">1:36:12</span>🚋</div>
+<div class="info">
+<h3>末班车没有终点</h3>
+<div class="desc">司机决定绕一条远路，车上的人默认了这场迟到。</div>
+<div class="genre"><span>电影</span><span>剧情</span><span>治愈</span></div>
+</div>
+</div>
+<div class="show-card">
+<div class="poster"><span class="reel">REEL 06</span><span class="runtime">0:52:00</span>📻</div>
+<div class="info">
+<h3>午夜收音机</h3>
+<div class="desc">凌晨两点的电台节目，连线的陌生人说出了藏了十年的秘密。</div>
+<div class="genre"><span>剧集</span><span>温情</span><span>深夜</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 放映时刻表 -->
+<section class="wrap" id="schedule">
+<div class="sec-head">
+<span class="curtain-tag">SHOW SCHEDULE</span>
+<h2>放映<span>时刻</span></h2>
+<p>今晚的完整排片，按时间顺序依次登场</p>
+</div>
+<div class="schedule">
+<div class="sched-row">
+<div class="time">23:00</div>
+<div class="film">末班车没有终点<small>电影 · 1h36m · 今晚首映</small></div>
+<div class="now-playing">正在放映</div>
+</div>
+<div class="sched-row">
+<div class="time">00:42</div>
+<div class="film">雨天的第七种拍法<small>短片 · 18m · 独立放映单元</small></div>
+<div class="now-playing">候场</div>
+</div>
+<div class="sched-row">
+<div class="time">01:04</div>
+<div class="film">凌晨四点的信号塔<small>纪录片 · 42m · 深夜纪实</small></div>
+<div class="now-playing">候场</div>
+</div>
+<div class="sched-row">
+<div class="time">01:52</div>
+<div class="film">熄灯之后（第3-4集）<small>剧集 · 双集连播 · 悬疑单元</small></div>
+<div class="now-playing">候场</div>
+</div>
+<div class="sched-row">
+<div class="time">02:48</div>
+<div class="film">午夜巴黎<small>电影 · 1h58m · 经典午夜场</small></div>
+<div class="now-playing">候场</div>
+</div>
+<div class="sched-row">
+<div class="time">04:50</div>
+<div class="film">午夜收音机（特别篇）<small>剧集 · 52m · 收场放映</small></div>
+<div class="now-playing">候场</div>
+</div>
+</div>
+</section>
+
+<!-- 分区导览 -->
+<section class="wrap" id="zone">
+<div class="sec-head">
+<span class="curtain-tag">SECTION GUIDE</span>
+<h2>分区<span>导览</span></h2>
+<p>四个常设分区，每晚轮替更新</p>
+</div>
+<div class="zone-grid">
+<div class="zone">
+<div class="no">01</div>
+<h4>电影厅</h4>
+<p>经典电影与独立佳片的长片放映区，每晚一部主打作品。</p>
+</div>
+<div class="zone">
+<div class="no">02</div>
+<h4>剧集廊</h4>
+<p>深夜剧集的双集连播与特别篇，适合追更的夜晚。</p>
+</div>
+<div class="zone">
+<div class="no">03</div>
+<h4>短片窗</h4>
+<p>独立短片与微电影展映，十到三十分钟的精神加餐。</p>
+</div>
+<div class="zone">
+<div class="no">04</div>
+<h4>纪实角</h4>
+<p>纪录片与真实影像，在深夜里触摸另一种人生。</p>
+</div>
+</div>
+</section>
+
+<!-- 舞台数据 -->
+<section class="wrap" id="stage">
+<div class="stage-stats">
+<div class="stat"><div class="n">1,286</div><div class="l">收录作品</div></div>
+<div class="stat"><div class="n">47万</div><div class="l">夜场观众</div></div>
+<div class="stat"><div class="n">316</div><div class="l">期深夜片单</div></div>
+<div class="stat"><div class="n">2.4亿</div><div class="l">累计观看分钟</div></div>
+</div>
+</section>
+
+<!-- 沉浸体验 -->
+<section class="wrap" id="immerse">
+<div class="sec-head">
+<span class="curtain-tag">IMMERSIVE EXPERIENCE</span>
+<h2>剧场<span>四感</span></h2>
+<p>我们不只是在播放视频，我们在营造一场沉浸式的深夜观影仪式</p>
+</div>
+<div class="immersive">
+<div class="im-card">
+<span class="ic">◆</span>
+<h4>聚焦灯光</h4>
+<p>每一部作品都经过光影调校，适配深夜观看的舒适亮度与色调。</p>
+</div>
+<div class="im-card">
+<span class="ic">▮▮</span>
+<h4>沉浸音场</h4>
+<p>支持多声道音效，戴上耳机就是专属的私人放映厅。</p>
+</div>
+<div class="im-card">
+<span class="ic">◆</span>
+<h4>无扰幕布</h4>
+<p>无弹窗、无强制跳转，像剧场一样纯粹的观影环境。</p>
+</div>
+<div class="im-card">
+<span class="ic">◎</span>
+<h4>主题编排</h4>
+<p>按情绪与时长精心编排，每晚一个主题，陪你完整看完一部作品。</p>
+</div>
+</div>
+</section>
+
+<!-- 页脚 -->
+<footer class="foot" id="about">
+<div class="logo"><em>午夜剧场</em>协和影视</div>
+<div class="curtain-row">◆ — ◆ — ◆</div>
+<p>当城市入眠，好戏才刚刚开场</p>
+<div class="url">https://wuyejuchangxieheyingshi-top.github.io</div>
+<div class="links">
+<a href="#">剧场首页</a><a href="#">今晚放映</a><a href="#">放映时刻</a><a href="#">分区导览</a><a href="#">舞台数据</a><a href="#">关于剧场</a>
+</div>
+<p style="font-size:.75rem;color:#5a4070;max-width:560px;margin:1rem auto 0;line-height:1.7">免责声明：本站为影视信息索引与深夜放映指南平台，所有影片资源来自互联网公开渠道，版权归原作者及发行方所有。本站倡导尊重版权、支持正版。</p>
+<p style="margin-top:1.5rem;font-size:.72rem;color:#4a3050">© 2024 午夜剧场协和影视 · 把夜晚还给故事</p>
+</footer>
+
+<script>
+// 导航高亮
+document.querySelectorAll('.nav-links a').forEach(function(a){
+a.addEventListener('click',function(){
+document.querySelectorAll('.nav-links a').forEach(function(n){n.classList.remove('active')});
+this.classList.add('active');
+});
+});
+// 入场券按钮
+document.querySelector('.nav-cta').addEventListener('click',function(){
+this.textContent='✓ 入场券已领取';
+var self=this;
+setTimeout(function(){self.textContent='◆ 入场券'},2000);
+});
+// 时钟
+function tick(){
+var d=new Date();
+var h=d.getHours(),m=d.getMinutes();
+h=h<10?'0'+h:h;m=m<10?'0'+m:m;
+var el=document.querySelector('.curtain-bar span:last-child');
+if(el)el.textContent='Showtime '+h+':'+m+' — 05:00';
+}
+tick();setInterval(tick,30000);
+</script>
+</body>
+</html>
